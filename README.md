@@ -22,6 +22,7 @@ Renovate's onboarding PR suggests this preset automatically, because it lives in
 - Security fixes skip the wait, provided Dependabot alerts are on in the repo.
 - Conventional Commit prefixes on commits and PR titles (`chore(deps): …`, `fix(deps): …`).
 - At most 5 open Renovate PRs per repo, labelled `dependencies`.
+- Hook `rev`s in `.pre-commit-config.yaml` are updated too (the `pre-commit` manager is off by default in Renovate). prek reads the same file.
 
 Automerge is only as safe as the repo's required checks. Renovate won't merge a
 branch with no passing checks, but only branch protection guarantees checks exist.
