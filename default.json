@@ -51,6 +51,25 @@
         "major"
       ],
       "automerge": false
+    },
+    {
+      "description": "requires-python states which Pythons a project supports; it is a policy, not a dependency. Left alone, Renovate raises the floor to the newest Python (LedFx/LedFx#1861 would have dropped 3.10-3.13).",
+      "matchDepTypes": [
+        "requires-python"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "A new Python or Node runtime (Docker base image, .python-version, .nvmrc) changes what a project ships on; a person reviews it even when it is only a minor version.",
+      "matchPackageNames": [
+        "python",
+        "node"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "automerge": false
     }
   ]
 }

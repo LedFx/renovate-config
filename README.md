@@ -18,6 +18,7 @@ Renovate's onboarding PR suggests this preset automatically, because it lives in
 - `config:best-practices`: digest-pinned Actions and Docker images, abandoned-package detection, weekly lock file maintenance.
 - Every update waits 14 days after release (npm included); majors wait 30 days.
 - Minor, patch, digest, pin and lock file updates automerge (squash) once CI is green. Majors never automerge.
+- `requires-python` is never updated: it's a support policy. Python/Node runtime bumps (base images, `.python-version`, `.nvmrc`) never automerge.
 - Security fixes skip the wait, provided Dependabot alerts are on in the repo.
 - Conventional Commit prefixes on commits and PR titles (`chore(deps): …`, `fix(deps): …`).
 - At most 5 open Renovate PRs per repo, labelled `dependencies`.
