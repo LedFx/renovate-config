@@ -73,6 +73,17 @@
         "minor"
       ],
       "automerge": false
+    },
+    {
+      "description": "ruff is 0.x: a minor release can change formatting or default rules across a whole repo, and autofix.ci then rewrites every open PR. A person merges it.",
+      "matchPackageNames": [
+        "astral-sh/ruff-pre-commit",
+        "ruff"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "automerge": false
     }
   ]
 }
