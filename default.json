@@ -13,6 +13,9 @@
     "dependencies"
   ],
   "minimumReleaseAge": "14 days",
+  "pre-commit": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "description": "npm waits 14 days like everything else. config:best-practices extends security:minimumReleaseAgeNpm (3 days) as a package rule, which beats the top-level value; this later rule wins. Only minor and patch: update types without a release timestamp (pin, bump, lockFileMaintenance) must not wait or they wait forever.",
@@ -67,6 +70,17 @@
       ],
       "matchUpdateTypes": [
         "major",
+        "minor"
+      ],
+      "automerge": false
+    },
+    {
+      "description": "ruff is 0.x: a minor release can change formatting or default rules across a whole repo, and autofix.ci then rewrites every open PR. A person merges it.",
+      "matchPackageNames": [
+        "astral-sh/ruff-pre-commit",
+        "ruff"
+      ],
+      "matchUpdateTypes": [
         "minor"
       ],
       "automerge": false
