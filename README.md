@@ -1,0 +1,38 @@
+# renovate-config
+
+The shared Renovate policy for LedFx repositories. Extend it from each repo's
+`renovate.json`:
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>LedFx/renovate-config"]
+}
+```
+
+Renovate's onboarding PR suggests this preset automatically, because it lives in
+`<org>/renovate-config` with a `default.json`.
+
+## Policy
+
+- `config:best-practices`: digest-pinned Actions and Docker images, abandoned-package detection, weekly lock file maintenance.
+- Every update waits 14 days after release (npm included); majors wait 30 days.
+- Minor, patch, digest, pin and lock file updates automerge (squash) once CI is green. Majors never automerge.
+- Security fixes skip the wait, provided Dependabot alerts are on in the repo.
+- Conventional Commit prefixes on commits and PR titles (`chore(deps): …`, `fix(deps): …`).
+- At most 5 open Renovate PRs per repo, labelled `dependencies`.
+
+Automerge is only as safe as the repo's required checks. Renovate won't merge a
+branch with no passing checks, but only branch protection guarantees checks exist.
+
+Repo-specific rules go in that repo's `renovate.json`; they're applied after this
+preset and win.
+
+## Changing it
+
+This file is read from `main` on every Renovate run in every repo that extends
+it. Validate before merging:
+
+```sh
+npx --yes --package renovate -- renovate-config-validator default.json
+```

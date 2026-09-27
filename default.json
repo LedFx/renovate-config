@@ -1,0 +1,56 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared dependency policy for LedFx repositories. Extend it, do not copy it.",
+  "extends": [
+    "config:best-practices",
+    ":dependencyDashboard"
+  ],
+  "semanticCommits": "enabled",
+  "automergeStrategy": "squash",
+  "platformAutomerge": true,
+  "prConcurrentLimit": 5,
+  "labels": [
+    "dependencies"
+  ],
+  "minimumReleaseAge": "14 days",
+  "packageRules": [
+    {
+      "description": "npm waits 14 days like everything else. config:best-practices extends security:minimumReleaseAgeNpm (3 days) as a package rule, which beats the top-level value; this later rule wins. Only minor and patch: update types without a release timestamp (pin, bump, lockFileMaintenance) must not wait or they wait forever.",
+      "matchDatasources": [
+        "npm"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "minimumReleaseAge": "14 days"
+    },
+    {
+      "description": "Majors soak for a month. A person reviews them anyway, so the wait costs nobody anything.",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "minimumReleaseAge": "30 days"
+    },
+    {
+      "description": "Non-majors merge themselves once CI is green. Renovate will not automerge a branch with no passing checks, so a repo without CI merges nothing. That is not a gate: only branch protection with required checks is.",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "pinDigest",
+        "bump",
+        "lockFileMaintenance"
+      ],
+      "automerge": true
+    },
+    {
+      "description": "Majors always wait for a person.",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "automerge": false
+    }
+  ]
+}
