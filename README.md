@@ -16,6 +16,7 @@ Renovate's onboarding PR suggests this preset automatically, because it lives in
 ## Policy
 
 - `config:best-practices`: digest-pinned Actions and Docker images, abandoned-package detection, weekly lock file maintenance.
+- Renovate opens and rebases update PRs once a week, before 04:00 UTC on Monday (`schedule:weekly`). Automerge still happens whenever CI goes green, and security fixes don't wait for the schedule.
 - Every update waits 14 days after release (npm included); majors wait 30 days.
 - Minor, patch, digest, pin and lock file updates automerge (squash) once CI is green. Majors never automerge.
 - `requires-python` is never updated: it's a support policy. Python/Node runtime bumps (base images, `.python-version`, `.nvmrc`) never automerge.
