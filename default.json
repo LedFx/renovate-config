@@ -3,7 +3,8 @@
   "description": "Shared dependency policy for LedFx repositories. Extend it, do not copy it.",
   "extends": [
     "config:best-practices",
-    ":dependencyDashboard"
+    ":dependencyDashboard",
+    "schedule:weekly"
   ],
   "semanticCommits": "enabled",
   "automergeStrategy": "squash",
