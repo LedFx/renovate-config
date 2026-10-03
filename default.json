@@ -6,6 +6,7 @@
     ":dependencyDashboard",
     "schedule:weekly"
   ],
+  "forkProcessing": "enabled",
   "semanticCommits": "enabled",
   "automergeStrategy": "squash",
   "platformAutomerge": true,
