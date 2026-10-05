@@ -85,6 +85,21 @@
         "minor"
       ],
       "automerge": false
+    },
+    {
+      "description": "Offer releases of our publication action on the next Renovate run, with immutable pins and human review; other dependencies keep their normal delay and schedule.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchPackageNames": [
+        "LedFx/release-ci"
+      ],
+      "pinDigests": true,
+      "minimumReleaseAge": "0 days",
+      "schedule": [
+        "at any time"
+      ],
+      "automerge": false
     }
   ]
 }
